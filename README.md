@@ -1,1 +1,1 @@
-Learning the basics of the shell
+Learning about SE and DevOps
