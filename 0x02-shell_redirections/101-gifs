@@ -1,2 +1,2 @@
 #!/bin/bash
-find . LC_ALL=C -name *.gif -printf '%f\n'
+find . -name *.gif -printf '%f\n' | tr -d "*.gif"
