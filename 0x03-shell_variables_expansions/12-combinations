@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e {a..z}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,p,q,r,s,t,u,v,w,x,y,z}'\n'
+eval "echo -e --exclude=oo {a..z}{a..z}'\n'" | grep -v oo
