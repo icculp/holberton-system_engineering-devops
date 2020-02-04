@@ -1,2 +1,2 @@
 #!/bin/bash
-sed n\;g
+perl -ne 'print if $. % 3 == 1' 
