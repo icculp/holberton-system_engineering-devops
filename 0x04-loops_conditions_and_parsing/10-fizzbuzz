@@ -3,12 +3,12 @@
 c=1
 while ((c<=100))
 do
-	if ! ((c%3)) ; then
+	if ! ((c%15)) ; then
+		echo "FizzBuzz"
+	elif ! ((c%3)) ; then
 		echo "Fizz"
 	elif ! ((c%5)) ; then
 		echo "Buzz"
-	elif ! ((c%15)) ; then
-		echo "FizzBuzz"
 	else
 		echo $c
 	fi
