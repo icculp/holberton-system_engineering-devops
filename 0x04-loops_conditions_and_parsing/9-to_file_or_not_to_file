@@ -2,7 +2,7 @@
 # This script is displaying "Holberton School" 10 times
 
 if [[ -e holbertonschool ]]; then
-	echo "holertonschool file exists"
+	echo "holbertonschool file exists"
 	if [[ -s holbertonschool ]]; then
 		echo "holbertonschool file is not empty"
 	else
