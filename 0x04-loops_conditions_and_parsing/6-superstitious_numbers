@@ -4,15 +4,25 @@ c=1
 while ((c<=20))
 do
 	printf "%d\n" $c
-	if [[ $c -eq 4 ]]
-	then
+	case $c in
+
+	"4")
 		echo "bad luck from China"
-	elif [[ $c -eq 9 ]]
-	then
+		;;
+	9)
 		echo "bad luck from Japan"
-	elif [[ $c -eq 17 ]]
-	then
+		;;
+	17)
 		echo "bad luck from Italy"
-	fi
+		;;
+	esac
 	((c++))
 done
+#	if [[ $c -eq 4 ]]
+#	then
+#	elif [[ $c -eq 9 ]]
+#	then
+#	elif [[ $c -eq 17 ]]
+#	then
+#	fi
+#	((c++))
