@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Comment to tell you what this task it about - NOT!
+# shellcheck disable=SC2009
+ps axuf | grep "bash"
