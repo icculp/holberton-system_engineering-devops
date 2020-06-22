@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Comment to tell you what this task it about - NOT!
+#ps -eHo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,comm
+ps axuf 
+#o user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,comm
