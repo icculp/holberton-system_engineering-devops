@@ -25,8 +25,9 @@ int infinite_while(void)
 int main(void)
 {
 	pid_t c1, c2, c3, c4, c5;
-	int infinite, i;
+	int infinite = 0;
 
+	(void)infinite;
 	c1 = fork();
 	if (c1 < 1)
 		exit(0);
