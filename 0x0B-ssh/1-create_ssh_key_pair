@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Task 1
+
+ssh-keygen -t rsa -b 4096 -f holberton -N betty
+

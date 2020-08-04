@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Task 0
+
+ssh -i ~/.ssh/holberton ubuntu@34.73.244.83
