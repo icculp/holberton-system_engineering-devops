@@ -1,15 +1,11 @@
 # Task 4
 # Creates a file
 file_line { 'PasswordAuthentication':
-  path    => '~/.ssh/ssh_config',
-  replace => true,
+  path    => '/etc/ssh//ssh_config',
   line    => 'PasswordAuthentication no',
-  match   => 'PasswordAuthentication'
 }
 
 file_line { 'IdentityFile':
-    path    => '~/.ssh/ssh_config',
-    replace => true,
+    path    => '/etc/ssh/ssh_config',
     line    => 'IdentityFile ~/.ssh/holberton',
-    match   => 'IdentityFile',
   }
