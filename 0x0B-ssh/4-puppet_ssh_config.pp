@@ -1,11 +1,15 @@
-# Task 2
+# Task 4
 # Creates a file
-
-::ssh::client::config::user { 'vagrant':
-  ensure        => present,
-  user_home_dir => '/home/vagrant',
-  options       => {
-    'PasswordAuthentication' => 'no',
-    'IdentityFile'           => '~/.ssh/holberton',
-  },
+file_line { 'PasswordAuthentication':
+  path              => '~/.ssh/ssh_config',
+  replace => true,
+  line => 'PasswordAuthentication no',
+  match => 'PasswordAuthentication'
 }
+
+file_line { 'IdentityFile':
+    path    => '~/.ssh/ssh_config',
+    replace => true,
+    line       => 'IdentityFile ~/.ssh/holberton',
+    match  => 'IdentityFile',
+  }
