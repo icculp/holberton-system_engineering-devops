@@ -1,8 +1,10 @@
 # Task 2
 # Creates a file
 
-class { 'ssh::server':
-  options           => {
+::ssh::client::config::user { 'vagrant':
+  ensure        => present,
+  user_home_dir => '/home/vagrant',
+  options       => {
     'PasswordAuthentication' => 'no',
     'IdentityFile'           => '~/.ssh/holberton',
   },
