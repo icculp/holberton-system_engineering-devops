@@ -4,17 +4,7 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo echo "
-<html>
-<head>
-    <meta charset='utf-8'>
-    <title>Hello, Nginx!</title>
-</head>
-<body>
-    <h1>Holberton School</h1>
-    <p>We have just configured our Nginx web server on Ubuntu Server!</p>
-</body>
-</html>" | sudo tee -a /var/www/html/index.html
+sudo echo "Holberton School" | sudo tee -a /var/www/html/index.html
 
 sudo mkdir /var/www/error
 sudo touch /var/www/error/custom_404.html
@@ -31,4 +21,4 @@ file="/etc/nginx/sites-available/default"
 
 sudo sed -i 's,'"$srvr"','"$add"',' "$file"
 
-sudo service nginx reload
+sudo service nginx restart
