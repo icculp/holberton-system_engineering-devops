@@ -4,7 +4,7 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo echo "Holbeton School" | sudo tee -a /var/www/html/index.html
+sudo echo "Holberton School" | sudo tee -a /var/www/html/index.html
 
 srvr="^server {$"
 add="server {\n\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
