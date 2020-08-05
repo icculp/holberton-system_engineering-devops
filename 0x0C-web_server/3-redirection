@@ -21,4 +21,4 @@ add="server {\n\trewrite ^/redirectme https://www.youtube.com/watch?v=QH2-TGUlwu
 file="/etc/nginx/sites-available/default"
 
 sudo sed -i 's,'"$srvr"','"$add"',' "$file"
-sudo service nginx reload
+sudo service nginx restart
