@@ -1,3 +1,6 @@
+# Task 2
+# comment
+
 exec {'apt-update':
     command => '/usr/bin/apt-get update',
 }
