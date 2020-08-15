@@ -15,16 +15,11 @@ $s = "server {
         listen 80 default_server;
         listen [::]:80 default_server;
         rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-        error_page 404 /custom_404.html
-        location = /custom_404.html {
-                root /var/www/error;
-                internal;
-                add_header X-Served-By \$hostname;
-        root /var/www/html
+        add_header X-Served-By ${hostname};
 }"
 
 file {'/etc/nginx/sites-available/default':
   ensure  => present,
   path    => '/etc/nginx/sites-available/default',
-  content => "$s",
+  content => "${s} ",
 }
