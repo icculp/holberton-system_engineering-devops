@@ -6,13 +6,13 @@ exec {'apt-update':
 }
 
 -> package {'nginx':
-  ensure => 'installed',
+  ensure   => 'installed',
   provider => 'apt',
 }
 
 -> file {'/var/www/html/index.html':
   ensure  => present,
-  content => 'Holberton School',
+  content => "Holberton School\n",
 }
 
 -> file {'/var/www/error/custom_404.html':
@@ -30,9 +30,10 @@ $s = "server {
                 root /var/www/error;
                 internal;
         }
+	root /var/www/html;
 }"
 
--> file {'/etc/nginx/sites-available/default':
+file {'/etc/nginx/sites-available/default':
   ensure  => present,
   path    => '/etc/nginx/sites-available/default',
   content => "${s} ",
