@@ -26,5 +26,5 @@ $s = "server {
 file {'/etc/nginx/sites-available/default':
   ensure  => present,
   path    => '/etc/nginx/sites-available/default',
-  content => '$s',
+  content => "$s",
 }
