@@ -6,7 +6,8 @@ exec {'apt-update':
 }
 
 -> package {'nginx':
-  ensure => latest,
+  ensure => 'installed',
+  provider => 'apt',
 }
 
 -> file {'/var/www/html/index.html':
