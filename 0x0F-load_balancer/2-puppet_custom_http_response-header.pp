@@ -5,16 +5,16 @@ exec {'apt-update':
     command => '/usr/bin/apt-get update',
 }
 
-package {'nginx':
+-> package {'nginx':
   ensure => latest,
 }
 
-file {'/var/www/html/index.html':
+-> file {'/var/www/html/index.html':
   ensure  => present,
   content => 'Holberton School',
 }
 
-file {'/var/www/error/custom_404.html':
+-> file {'/var/www/error/custom_404.html':
   ensure  => present,
   content => "Ceci n'est pas une page\n",
 }
@@ -31,13 +31,13 @@ $s = "server {
         }
 }"
 
-file {'/etc/nginx/sites-available/default':
+-> file {'/etc/nginx/sites-available/default':
   ensure  => present,
   path    => '/etc/nginx/sites-available/default',
   content => "${s} ",
 }
 
-service {'nginx':
+-> service {'nginx':
   ensure  => running,
   restart => 'sudo service nginx restart',
 }
