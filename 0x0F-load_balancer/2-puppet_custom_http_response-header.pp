@@ -15,7 +15,7 @@ exec {'apt-update':
   content => "Holberton School\n",
 }
 
--> file {'/var/www/error/custom_404.html':
+-> file {'/var/www/html/custom_404.html':
   ensure  => present,
   content => "Ceci n'est pas une page\n",
 }
@@ -27,7 +27,7 @@ $s = "server {
         add_header X-Served-By ${hostname};
         error_page 404 /custom_404.html;
         location = /custom_404.html {
-                root /var/www/error;
+                root /var/www/html;
                 internal;
         }
 	root /var/www/html;
