@@ -1,8 +1,9 @@
 # Task 2
 # comment
 
+
 exec {'apt-update':
-    command => '/usr/bin/env apt-get update',
+    command => '/usr/bin/env apt-get -y update',
 }
 
 -> package {'nginx':
@@ -10,13 +11,15 @@ exec {'apt-update':
   provider => 'apt',
 }
 
--> file {'/var/www/html/index.html':
-  ensure  => present,
+file {'/var/www/html/index.html':
+  ensure  => 'file',
+  path    => '/var/www/html/index.html',
   content => "Holberton School\n",
 }
 
--> file {'/var/www/html/custom_404.html':
-  ensure  => present,
+file {'custom_404.html':
+  ensure  => 'file',
+  path    => '/var/www/html/custom_404.html',
   content => "Ceci n'est pas une page\n",
 }
 
@@ -30,7 +33,7 @@ $s = "server {
                 root /var/www/html;
                 internal;
         }
-	root /var/www/html;
+        root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
 
         server_name _;
@@ -43,12 +46,12 @@ $s = "server {
 }"
 
 file {'/etc/nginx/sites-available/default':
-  ensure  => present,
+  ensure  => 'file',
   path    => '/etc/nginx/sites-available/default',
   content => "${s} ",
 }
 
--> service {'nginx':
-  ensure  => running,
+service {'nginx':
+  ensure  => 'running',
   restart => 'sudo service nginx restart',
 }
