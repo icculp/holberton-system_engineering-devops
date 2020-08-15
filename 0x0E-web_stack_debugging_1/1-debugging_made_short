@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Task 1
+sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo /etc/init.d/nginx start
+sudo sed -i 's,pid /run/nginx.pid,pid /run/ngx.pid,' /etc/nginx/nginx.conf
