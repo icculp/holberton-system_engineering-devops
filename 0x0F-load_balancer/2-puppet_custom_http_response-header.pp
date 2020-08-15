@@ -1,28 +1,6 @@
 # Task 2
 # comment
 
-
-exec {'apt-update':
-    command => '/usr/bin/env apt-get -y update',
-}
-
--> package {'nginx':
-  ensure   => 'installed',
-  provider => 'apt',
-}
-
-file {'/var/www/html/index.html':
-  ensure  => 'file',
-  path    => '/var/www/html/index.html',
-  content => "Holberton School\n",
-}
-
-file {'custom_404.html':
-  ensure  => 'file',
-  path    => '/var/www/html/custom_404.html',
-  content => "Ceci n'est pas une page\n",
-}
-
 $s = "server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -45,13 +23,35 @@ $s = "server {
         }
 }"
 
-file {'/etc/nginx/sites-available/default':
+exec {'apt-update':
+    command => '/usr/bin/env apt-get -y update',
+}
+
+-> package {'nginx':
+  ensure   => 'installed',
+  provider => 'apt',
+}
+
+-> file {'/var/www/html/index.html':
+  ensure  => 'file',
+  path => '/var/www/html/index.html',
+  content => "Holberton School\n",
+}
+
+-> file {'custom_404.html':
+  ensure  => 'file',
+  path => '/var/www/html/custom_404.html',
+  content => "Ceci n'est pas une page\n",
+}
+
+
+-> file {'/etc/nginx/sites-available/default':
   ensure  => 'file',
   path    => '/etc/nginx/sites-available/default',
   content => "${s} ",
 }
 
-service {'nginx':
+-> service {'nginx':
   ensure  => 'running',
   restart => 'sudo service nginx restart',
 }
