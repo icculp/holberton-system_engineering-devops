@@ -3,7 +3,7 @@
 * What is 0.0.0.0
 * What is /etc/hosts
 * How to display your machines active network interfaces
-man or help:
+man or help the following:
 * ifconfig
 * telnet
 * nc
