@@ -2,7 +2,7 @@
 # comment
 
 exec {'apt-update':
-    command => '/usr/bin/apt-get update',
+    command => '/usr/bin/env apt-get update',
 }
 
 -> package {'nginx':
