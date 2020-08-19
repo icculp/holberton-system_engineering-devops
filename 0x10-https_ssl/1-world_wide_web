@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Task 1
-www=$(dig www.ianculp.tech | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print RT}')
-lb01=$(dig lb-01.ianculp.tech | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
-web01=$(dig web-01.ianculp.tech | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
-web02=$(dig web-02.ianculp.tech | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
+www=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print RT}')
+lb01=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
+web01=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
+web02=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
 if [[ -z "$1" ]]; then
 	echo "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]"
 else
