@@ -17,7 +17,7 @@ if [[ -z "$1" ]]; then
 	else
 		if [[ -z "$2" ]]; then
 			echo "The subdomain www is a $wwwrec record and points to $www"
-			echo "The subdomain lib-01 is a $lbrec record and points to $lb01"
+			echo "The subdomain lb-01 is a $lbrec record and points to $lb01"
 			echo "The subdomain web-01 is a $w01rec record and points to $web01"
 			echo "The subdomain web-02 is a $w02rec record and points to $web02"
 		else
