@@ -6,7 +6,7 @@ wwwrec=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
 lb01=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
 lbrec=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
 web01=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
-w01rec=rec=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
+w01rec=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
 web02=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
 w02rec=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
 
