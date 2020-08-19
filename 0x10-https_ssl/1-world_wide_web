@@ -3,17 +3,17 @@
 
 www=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $5}')
 wwwrec=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
-lb01=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
+lb01=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print$5}')
 lbrec=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
-web01=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
+web01=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $5}')
 w01rec=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
-web02=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
+web02=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $5}')
 w02rec=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk -v ORS='' '{print $4}')
 
 whatever ()
 {
-if [[ -z "$1" ]]; then
-	echo "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]"
+	if [[ -z "$1" ]]; then
+		echo "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]"
 	else
 		if [[ -z "$2" ]]; then
 			echo "The subdomain www is a $wwwrec record and points to $www"
