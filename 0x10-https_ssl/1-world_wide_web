@@ -1,28 +1,33 @@
 #!/usr/bin/env bash
 # Task 1
+
 www=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print RT}')
 lb01=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
 web01=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
 web02=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk -v RS='([0-9]+\\.){3}[0-9]+' 'RT{print     RT}')
+
+whatever ()
+{
 if [[ -z "$1" ]]; then
 	echo "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]"
-else
-	if [[ -z "$2" ]]; then
-		echo "The subdomain www is a A record and points to $www"
-		echo "The subdomain lib-01 is a A record and points to $lb01"
-		echo "The subdomain web-01 is a A record and points to $web01"
-		echo "The subdomain web-02 is a A record and points to $web02"
 	else
-		if [[ $2 == 'www' ]]; then
-			echo "The subdomain $2 is a A record and points to $www"
-		elif [[ $2 == 'lb-01' ]]; then
-			echo "The subdomain $2 is a A record and points to $lb01"
-		elif [[ $2 == 'web-01' ]]; then
-			echo "The subdomain $2 is a A record and points to $web01"
-		elif [[ $2 == 'web-02' ]]; then
-			echo "The subdomain $2 is a A record and points to $web02"
+		if [[ -z "$2" ]]; then
+			echo "The subdomain www is a A record and points to $www"
+			echo "The subdomain lib-01 is a A record and points to $lb01"
+			echo "The subdomain web-01 is a A record and points to $web01"
+			echo "The subdomain web-02 is a A record and points to $web02"
 		else
-			:
-		fi	
+			if [[ "$2" == 'www' ]]; then
+				echo "The subdomain $2 is a A record and points to $www"
+			elif [[ "$2" == 'lb-01' ]]; then
+				echo "The subdomain $2 is a A record and points to $lb01"
+			elif [[ "$2" == 'web-01' ]]; then
+				echo "The subdomain $2 is a A record and points to $web01"
+			elif [[ "$2" == 'web-02' ]]; then
+				echo "The subdomain $2 is a A record and points to $web02"
+			fi	
+		fi
 	fi
-fi
+}
+
+whatever $1 $2
