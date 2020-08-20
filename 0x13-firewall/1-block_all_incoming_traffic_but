@@ -1,5 +1,5 @@
 sudo ufw default deny incoming
 sudo ufw allow telnet
-sudo ufw allow https,ssl
+sudo ufw allow https
 sudo ufw allow http
-sudo ufw enable
+sudo ufw --forced enable
