@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Task 1
+sudo service nginx stop
+sudo service apache2 stop
+sudo pkill nginx
+sudo pkill apache2
+sudo sed -i '3a user nginx;' /etc/nginx/nginx.conf
+sudo sed -i 's,80,8080,g' /etc/nginx/sites-available/default
+sudo chmod -R 777 /etc/nginx/nginx.conf
+sudo chown -R nginx:nginx /etc/nginx/nginx.conf
+sudo -u nginx service nginx restart
