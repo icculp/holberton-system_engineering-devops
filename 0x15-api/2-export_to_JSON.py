@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-    Task 0
+    Task 2
 """
 import requests
 from sys import argv
+import json
 
 
 rusr = requests.get('https://jsonplaceholder.typicode.com/users/{}'
@@ -15,12 +16,15 @@ jtodo = rtodo.json()
 
 done = len(jtodo)
 notdone = 0
+uname = jusr.get('username')
 name = jusr.get('name')
-for t in jtodo:
-    if t.get('completed') is True:
-        notdone = notdone + 1
+fname = argv[1] + ".json"
 
-print("Employee {} is done with tasks({}/{}):".format(name, notdone, done))
+retd = dict()
+retl = []
 for t in jtodo:
-    if t.get('completed') is True:
-        print("\t {}".format(t.get('title')))
+    retl.append({"task": t.get('title'), "completed": t.get('completed'),
+                "username": uname})
+retd.update({argv[1]: retl})
+with open(fname, mode='w') as user_file:
+    json.dump(retd, user_file)
