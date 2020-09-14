@@ -14,8 +14,8 @@ if __name__ == '__main__':
         ul = []
         uid = usr.get('id')
         uname = usr.get('username')
-        rtodo = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
-                             .format(uid))
+        rtodo = requests.get('https://jsonplaceholder.typi' +
+                             'code.com/users/{}/todos'.format(uid))
         for do in rtodo.json():
             ul.append({"username": uname, "task": do.get('title'), "completed":
                       do.get('completed')})
