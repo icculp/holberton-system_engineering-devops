@@ -2,9 +2,9 @@
 """
     Task 2
 """
+import json
 import requests
 from sys import argv
-import json
 
 if __name__ == '__main__':
     rusr = requests.get('https://jsonplaceholder.typicode.com/users/{}'
