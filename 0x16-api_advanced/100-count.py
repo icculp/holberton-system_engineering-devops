@@ -27,3 +27,21 @@ def recurse(subreddit, hot_list=[], after=None):
         return recurse(subreddit, hot_list, after)
     else:
         return hot_list
+
+
+def count_words(subreddit, word_list):
+    """ counts dem keywords """
+    hot_list = recurse(subreddit)
+    if hot_list is None:
+        print()
+        return
+    cnts = {}
+    for word in word_list:
+        c = 0
+        for title in hot_list:
+            if word.strip().lower() in title.strip().lower():
+                c = c + 1
+        cnts.update({word.lower(): c})
+    for k in sorted(cnts.keys()):
+        if cnts.get(k) != 0:
+            print("{}: {}".format(k, cnts.get(k)))
