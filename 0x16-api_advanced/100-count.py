@@ -62,6 +62,7 @@ def count_words(subreddit, word_list):
     hot_list = recurse(subreddit)
     if hot_list is None:
         return
-    if False:
+    f = 0
+    if f == 1:
         count_words(subreddit, word_list)
     print_words(word_list, hot_list)
