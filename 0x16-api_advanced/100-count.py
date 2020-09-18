@@ -36,7 +36,6 @@ def count_words(subreddit, word_list):
     """ counts dem keywords """
     hot_list = recurse(subreddit)
     if hot_list is None:
-        print()
         return
     cnts = {}
     for word in word_list:
