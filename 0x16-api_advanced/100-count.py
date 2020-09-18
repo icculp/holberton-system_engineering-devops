@@ -41,9 +41,16 @@ def count_words(subreddit, word_list):
     for word in word_list:
         c = 0
         for title in hot_list:
+            t = title.lower().split()
+            if word.lower().strip() in t:
+                c += t.count(word.lower().strip())
+            '''
             for w in title.split():
-                if word.strip().lower() in w.strip().lower():
+                if word.strip().lower() in word.strip().lower():
+                    print("{}, {}".format(word.
+                                          strip().lower(), w.strip().lower()))
                     c = c + 1
+            '''
         cnts.update({word.lower(): c})
     '''
     print(hot_list)'''
