@@ -17,6 +17,8 @@ def recurse(subreddit, hot_list=[], after=None):
     r = requests.get(url,
                      headers=header,
                      allow_redirects=False)
+    if r.status_code != 200:
+        return None
     try:
         rj = r.json()
     except:
