@@ -17,7 +17,10 @@ def recurse(subreddit, hot_list=[], after=None):
     r = requests.get(url,
                      headers=header,
                      allow_redirects=False)
-    rj = r.json()
+    try:
+        rj = r.json()
+    except:
+        return None
     if rj.get('message') == 'Not Found':
         return
     chldrn = rj.get('data').get('children')
