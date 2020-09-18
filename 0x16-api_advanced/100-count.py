@@ -39,9 +39,12 @@ def count_words(subreddit, word_list):
     for word in word_list:
         c = 0
         for title in hot_list:
-            if word.strip().lower() in title.strip().lower():
-                c = c + 1
+            for w in title.split():
+                if word.strip().lower() in w.strip().lower():
+                    c = c + 1
         cnts.update({word.lower(): c})
-    for k in sorted(cnts.keys()):
+    '''
+    print(hot_list)'''
+    for k, v in sorted(cnts.items(), key=lambda x: x[1], reverse=True):
         if cnts.get(k) != 0:
-            print("{}: {}".format(k, cnts.get(k)))
+            print("{}: {}".format(k, v))
