@@ -50,8 +50,8 @@ def print_words(word_list, hot_list):
             '''
         cnts.update({word.lower(): c})
     '''
-    print(hot_list)'''
-    cnts.update({'thing': 17})
+    print(hot_list)
+    cnts.update({'thing': 17})'''
     for k, v in sorted(cnts.items(), key=lambda x: (-x[1], x[0])):
         if cnts.get(k) != 0:
             print("{}: {}".format(k, v))
