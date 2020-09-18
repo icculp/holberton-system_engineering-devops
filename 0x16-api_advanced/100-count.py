@@ -54,6 +54,8 @@ def count_words(subreddit, word_list):
         cnts.update({word.lower(): c})
     '''
     print(hot_list)'''
+    if False:
+        count_words(subreddit, word_list)
     for k, v in sorted(cnts.items(), key=lambda x: x[1], reverse=True):
         if cnts.get(k) != 0:
             print("{}: {}".format(k, v))
