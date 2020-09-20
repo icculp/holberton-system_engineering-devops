@@ -50,7 +50,10 @@ def print_words(word_list, hot_list):
                                           strip().lower(), w.strip().lower()))
                     c = c + 1
             '''
-        cnts.update({word.lower(): c})
+        if word.lower() in cnts:
+            cnts[word.lower()] += c
+        else:
+            cnts.update({word.lower(): c})
     '''
     print(hot_list)
     cnts.update({'thing': 17})'''
