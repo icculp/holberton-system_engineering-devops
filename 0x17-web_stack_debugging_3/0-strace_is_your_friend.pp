@@ -1,4 +1,6 @@
-exec {'sed':
-  command => "sudo sed -i 's,phpp,php,' /var/www/html/wp-settings.php",
-  path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
+file_line {'wp-settings.php':
+  ensure => present,
+  path   => '/var/www/html/wp-settings.php',
+  match  => '(\.phpp)'
+  line   => 'require_once( ABSPATH . WPINC . '/class-wp-locale.php' );'
 }
