@@ -1,3 +1,5 @@
+# Task 0
+
 file {'/etc/default/nginx':
   ensure  => present,
   path    =>  '/etc/default/nginx',
