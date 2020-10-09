@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Task 7, why is it 4? idk.
+pkill -HUP gunicorn
